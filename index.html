@@ -373,12 +373,15 @@
       
         
           
-            <p>#大整数运算（一）<br>  前一段时间初试ACM，发现简单的A+B逻辑问题实际操作起来并不容易，主要原因就是题目要求的操作数据过大，C中longlong都无法表</p>
-<blockquote>
-<p>示。鉴于此，浏览了相关博客，网站和书籍，小小总解一下如何进行大数运算。<br>A+B问题<br>  解法：可通过字符串的形式先存储A和B（输入的顺序和存储的顺序要逆转），然后，再模拟加法的过程，最后再将结果打印出来即可。<br>最难的莫过于模拟加法的过程了，不过理解了还是挺简单的。<br>代码如下：</p>
-</blockquote>
-<p>#include&lt;stdio.h&gt;</p>
-<p>#include&lt;string.h&gt;<br>struct bigN{<br>    int d[1000];<br>    int len;<br>    bigN(){<br>        memset(d,0,sizeof(d));<br>        len=0;<br>    }<br>};<br>bigN change(char str[])<br>bigN add(bigN ,bigN )<br>void print(bigN )<br>int main(){<br>    char str1[1000],str2[1000];<br>    scanf(“%s%s”,str1,str2);<br>    bigN a=change(str1);<br>    bigN b=change(str2);<br>    print(add(a,b));<br>    return 0;<br>}<br>bigN change(char str[]){<br>    bigN a;<br>    a.len=strlen(str);<br>    for(int i=0;i&lt;a.len;i++){<br>        a.d[i]=str[a.len-i-1]-‘0’;<br>    }<br>    return a;<br>}<br>bigN add(bigN a,bigN b){<br>    bigN c;<br>    int carry=0;<br>    for(int i=0;i&lt;a.len||i&lt;b.len;i++){<br>        int temp=a.d[i]+b.d[i]+carry;<br>        c.d[c.len++]=temp%10;<br>        carry=temp/10;<br>    }<br>    if(carry !=0){<br>        c.d[c.len++]=carry;<br>    }<br>    return c;<br>}<br>void print(bigN a){<br>    for(int i =a.len-1;i&gt;=0;i–){<br>        printf(“%d”,a.d[i]);<br>    }<br>}</p>
+            <h1 id="致开始"><a href="#致开始" class="headerlink" title="致开始"></a>致开始</h1><p>​    You’ve got to find what you love.</p>
+<p>​    回想起乔布斯在斯坦福的演讲语录，才慢慢意识到大学的意义。在这个相对比以往任何生活场所个更自由更开放的地方，恰逢遇上时代浪潮的尖端，去寻找自己真正热爱的事物，去经历坎坷，去放飞梦想，去习惯苦和累，去享受竭力奋斗后的兴奋。</p>
+<p>​    大一上浑浑噩噩，高数逃了有7、8节，大物翘了有近10次，思修emm不记得了，书记的形势政策只去了一次，体育不知道早退了有多少次（期末被扣分！！），有人会说那这些时间去哪了呢。没错啊，浑浑噩噩当然少不了玩的睡得晚，困的起不来。现在想来，如果没有当初死猪般的颓废，现在的我也不会意识到时间有多宝贵，梦想有多珍贵。上学期在吃吃睡睡玩玩之余，有幸接触到了acm，作为还没有学习C语言的电院学生，在新生赛的网络赛中死磕拿下5题之后也小有骄傲，更重要的是：我，爱上他了。每一次AC之前伴随着数不清的WA，TLE，MLE，这是心碎、烦躁不安，但更是任何一项游戏胜利后无法比拟的快感。随后，因热衷于此，开始融入类似的群体，在遍地的大佬面前，只能说智商和视野频繁地限制了我的想象力，也缘于此，acm，算法，各类语言，计算机科学与技术慢慢地走向了我的世界。大一的寒假，一口气把c prime plus剩下的部分读完，带着自信和梦想坚定地来到了第二学期。从C的深入，科创社软件团队的项目，Python，cpp，数据结构，算法，都将是朝向理想国的开始。</p>
+<p>​    这是第一篇博客上的文章，献给辛苦搭建博客的自己，也献给正在奋斗的自己。</p>
+<p>​    不论梦有多广</p>
+<p>​    不论梦有多远</p>
+<p>​    不论梦有多深</p>
+<p>​    我相信，明天的希望，会让我们忘记了今天的痛苦。</p>
+<p>​    Stay  Hungry,Stay Foolish.</p>
 
           
         
