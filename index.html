@@ -279,6 +279,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/02/大整数运算（一）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="AAATK">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/C:\Users\我也不知道\Pictures\Saved Pictures\png/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/02/大整数运算（一）/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-02T23:08:05+08:00">
+                2018-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<p>#大整数运算（一）<br>  前一段时间初试ACM，发现简单的A+B逻辑问题实际操作起来并不容易，主要原因就是题目要求的操作数据过大，C中longlong都无法表<br>示。鉴于此，浏览了相关博客，网站和书籍，小小总解一下如何进行大数运算。<br>A+B问题<br>  解法：可通过字符串的形式先存储A和B（输入的顺序和存储的顺序要逆转），然后，再模拟加法的过程，最后再将结果打印出来即可。<br>最难的莫过于模拟加法的过程了，不过理解了还是挺简单的。<br>代码如下：</p>
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;string.h&gt;
+struct bigN{
+int d[1000];
+int len;
+bigN(){
+    memset(d,0,sizeof(d));
+    len=0;
+}
+};
+bigN change(char str[])
+bigN add(bigN ,bigN )
+void print(bigN )
+int main(){
+char str1[1000],str2[1000];
+scanf(&quot;%s%s&quot;,str1,str2);
+bigN a=change(str1);
+bigN b=change(str2);
+print(add(a,b));
+return 0;
+}
+bigN change(char str[]){
+bigN a;
+a.len=strlen(str);
+for(int i=0;i&lt;a.len;i++){
+    a.d[i]=str[a.len-i-1]-&apos;0&apos;;
+}
+return a;
+}
+bigN add(bigN a,bigN b){
+bigN c;
+int carry=0;
+for(int i=0;i&lt;a.len||i&lt;b.len;i++){
+    int temp=a.d[i]+b.d[i]+carry;
+    c.d[c.len++]=temp%10;
+    carry=temp/10;
+}
+if(carry !=0){
+    c.d[c.len++]=carry;
+}
+return c;
+}
+void print(bigN a){
+for(int i =a.len-1;i&gt;=0;i--){
+    printf(&quot;%d&quot;,a.d[i]);
+}
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/22/tags/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -467,7 +635,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
